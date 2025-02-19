@@ -4,18 +4,48 @@
  */
 package u1.ejercicio10directorio.vista;
 
+import javax.swing.JTextField;
+import u1.ejercicio10directorio.controlador.DirectorioControlador;
+
 /**
  *
  * @author borisperezg
  */
 public class DirectorioVista extends javax.swing.JFrame {
-
+    private DirectorioControlador controlador;
     /**
      * Creates new form DirectorioVista
      */
     public DirectorioVista() {
         initComponents();
+        controlador = new DirectorioControlador(this);
     }
+
+    public JTextField getTxtEncontrado() {
+        return txtEncontrado;
+    }
+
+    public void setTxtEncontrado(JTextField txtEncontrado) {
+        this.txtEncontrado = txtEncontrado;
+    }
+
+    public JTextField getTxtPosicion() {
+        return txtPosicion;
+    }
+
+    public void setTxtPosicion(JTextField txtPosicion) {
+        this.txtPosicion = txtPosicion;
+    }
+
+    public JTextField getTxtTelefono() {
+        return txtTelefono;
+    }
+
+    public void setTxtTelefono(JTextField txtTelefono) {
+        this.txtTelefono = txtTelefono;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +75,11 @@ public class DirectorioVista extends javax.swing.JFrame {
         jLabel1.setText("Teléfono:");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,14 +111,34 @@ public class DirectorioVista extends javax.swing.JFrame {
 
         txtEncontrado.setEditable(false);
         txtEncontrado.setBackground(new java.awt.Color(255, 255, 204));
+        txtEncontrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEncontradoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Teléfono:");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnEliminarValor.setText("Eliminar por valor");
+        btnEliminarValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarValorActionPerformed(evt);
+            }
+        });
 
         btnEliminarPosicion.setText("Eliminar por posición");
+        btnEliminarPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPosicionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,6 +192,31 @@ public class DirectorioVista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        controlador.guardar();
+        getTxtTelefono().setText("");
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtEncontradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEncontradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEncontradoActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        controlador.buscar();
+        getTxtPosicion().setText("");
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarValorActionPerformed
+        controlador.eliminarValor();
+        getTxtTelefono().setText("");
+    }//GEN-LAST:event_btnEliminarValorActionPerformed
+
+    private void btnEliminarPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPosicionActionPerformed
+        controlador.eliminarPosicion();
+        getTxtPosicion().setText("");
+    }//GEN-LAST:event_btnEliminarPosicionActionPerformed
 
     /**
      * @param args the command line arguments

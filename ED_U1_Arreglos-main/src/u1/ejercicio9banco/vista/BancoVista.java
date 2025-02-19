@@ -4,18 +4,70 @@
  */
 package u1.ejercicio9banco.vista;
 
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import u1.ejercicio9banco.controlador.BancoControlador;
+
 /**
  *
  * @author borisperezg
  */
 public class BancoVista extends javax.swing.JFrame {
-
+     private BancoControlador controlador;
     /**
      * Creates new form BancoVista
      */
     public BancoVista() {
         initComponents();
+        controlador = new BancoControlador(this);
     }
+
+    public JTextField getTxtCorreo() {
+        return txtCorreo;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public JTextField getTxtSaldo() {
+        return txtSaldo;
+    }
+
+    public JTextArea getTaListaClientes() {
+        return taListaClientes;
+    }
+
+    public JTextField getTxtCantidadClientes() {
+        return txtCantidadClientes;
+    }
+
+    public JTextField getTxtCantidadClientes1() {
+        return txtCantidadClientes1;
+    }
+
+    public JTextField getTxtPromedio() {
+        return txtPromedio;
+    }
+
+    public void setTaListaClientes(JTextArea taListaClientes) {
+        this.taListaClientes = taListaClientes;
+    }
+
+    public void setTxtCantidadClientes(JTextField txtCantidadClientes) {
+        this.txtCantidadClientes = txtCantidadClientes;
+    }
+
+    public void setTxtCantidadClientes1(JTextField txtCantidadClientes1) {
+        this.txtCantidadClientes1 = txtCantidadClientes1;
+    }
+
+    public void setTxtPromedio(JTextField txtPromedio) {
+        this.txtPromedio = txtPromedio;
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,9 +107,25 @@ public class BancoVista extends javax.swing.JFrame {
 
         jLabel3.setText("Saldo:");
 
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,6 +178,11 @@ public class BancoVista extends javax.swing.JFrame {
 
         txtCantidadClientes.setEditable(false);
         txtCantidadClientes.setBackground(new java.awt.Color(255, 255, 204));
+        txtCantidadClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadClientesActionPerformed(evt);
+            }
+        });
 
         taListaClientes.setColumns(20);
         taListaClientes.setRows(5);
@@ -119,6 +192,11 @@ public class BancoVista extends javax.swing.JFrame {
 
         txtPromedio.setEditable(false);
         txtPromedio.setBackground(new java.awt.Color(255, 255, 204));
+        txtPromedio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPromedioActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Cantidad clientes debajo promedio:");
 
@@ -176,6 +254,32 @@ public class BancoVista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        controlador.guardarcliente();
+        controlador.cantidadClientes();
+        controlador.promedioSaldo();
+        controlador.cantidadClientesBajoPromedio();
+        controlador.listaClientesBajoPromedio();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtCantidadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadClientesActionPerformed
+
+    private void txtPromedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPromedioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPromedioActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        getTxtNombre().setText("");
+        getTxtCorreo().setText("");
+        getTxtSaldo().setText("");
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
