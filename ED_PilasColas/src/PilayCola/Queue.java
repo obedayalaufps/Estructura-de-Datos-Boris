@@ -69,5 +69,9 @@ public class Queue<T> {
         }
         System.out.println("]");
     }
+    
+    public int size() {
+        return size;
+    }
 
 }

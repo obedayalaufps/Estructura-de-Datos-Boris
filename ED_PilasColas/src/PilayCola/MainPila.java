@@ -36,6 +36,14 @@ public class MainPila {
         String expresion = "{()}{}()";
         System.out.println(utils.isBalanceado(expresion));
         
+        String palabra = "alila";
+        if (utils.isPalindromo(palabra)) {
+            System.out.println("Es palindromo.");
+        }
+        else{
+            System.out.println("No es palindromo.");
+        }
+        
     }
     
 }

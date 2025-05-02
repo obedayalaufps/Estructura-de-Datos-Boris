@@ -14,22 +14,33 @@ public class MainCola {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Queue q = new Queue();
+        Queue q1 = new Queue();
+        Queue q2 = new Queue();
         
         //enqueue()
-        q.enqueue(2);
-        q.enqueue(4);
-        q.enqueue(6);
-        q.enqueue(8);
-        q.enqueue(10);
-        q.print();
+        q1.enqueue(2);
+        q1.enqueue(4);
+        q1.enqueue(6);
+        q1.enqueue(8);
+        q1.enqueue(10);
+        q1.print();
+        
+        q2.enqueue(2);
+        q2.enqueue(4);
+        q2.enqueue(6);
+        q2.enqueue(8);
+        q2.enqueue(10);
+        q2.print();
         
         //dequeue()
-        q.dequeue();
-        q.print();
+        q1.dequeue();
+        q1.print();
         
         //peek()
-        System.out.println("Valor al inicio de la cola: "+q);
+        System.out.println("Valor al inicio de la cola: "+q1);
+        
+        QueueUtils utils = new QueueUtils();
+        System.out.println(utils.sonIguales(q1, q2));
         
     } 
 }
